@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+{% for matiere in matieres %}
+
+         <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-img">
+                  <img src="{{ asset('webImage/' ~ matiere.image) }}" height="300px" width="400px" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{path('cours_matieree', {'id': matiere.id})}}">{{matiere.titre}}</a></h5>
+              
+               </div>
+            </div>
+          </div>
+
+
+
+
+         {% endfor %} 
+      </div>
+    
+    </div>
+  </div> <!-- End Course Item-->
+</section>
+
+{% endblock %}

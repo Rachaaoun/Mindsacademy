@@ -1,0 +1,93 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Cours index{% endblock %}
+
+{% block body %}
+
+
+
+  <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Les Cours</strong>
+                            </div>
+                          
+                            {% for cour in cours %}
+                              <strong class="card-title">{{cour.matiere.titre}} </strong>
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">#</th>
+                                            <th class="avatar">Image</th>
+                                              <th class="serial">Titre</th>
+                                            <th colspan="2">populaire</th>
+                                            
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+{# 
+                                    {% if cour.matiere == matiere %} #}
+                                        <tr>
+                                            <td class="serial">{{ cour.id }}</td>
+                                            <td class="avatar">
+                                                <div class="round-img">
+                                                    <a href="#"><img class="rounded-circle"  src="{{ asset('webImage/' ~ cour.image) }}"  alt=""></a>
+                                                </div>
+                                            </td>
+
+                                            <td>  <span class="name">{{ cour.titre }}</span> </td>
+                                            {# {% if cour.populaire %}
+                                        <td>
+                                             {{ include('cours/_active_populaire_form.html.twig') }}</td>
+                                            <td>
+                                            {% else %} #}
+                                            <td>
+                                            {% if cour.populaire  == 0 %}
+                                             
+                                           <a>  {{ include('cours/_active_populaire_form.html.twig') }}</td>
+                                              </a>  {% endif %}
+</Td>
+<td>
+                                                 {% if cour.populaire == 1 %}
+                                               <a>     
+                                             {{ include('cours/_active_nopopulaire_form.html.twig') }}
+                                               </a> {% endif %}
+                                                </td>
+                                            <td>
+
+                                             <span class="badge badge-complete">
+                    <a href="{{ path('cours_show', {'id': cour.id}) }}">Voir</a></span>
+                     <span class="badge badge-complete">
+                    <a href="{{ path('cours_edit', {'id': cour.id}) }}">Modifier</a>
+                                               </span>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                                {% endfor %}
+                            </div> <!-- /.table-stats -->
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+        {% for cours in cours %}
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-img">
+                <img src="{{ asset('webImage/' ~ cours.image) }}"  height="300px" width="400px"   alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{path('cours_detail', {'id': cours.id})}}">{{cours.titre}}</a></h5>
+              
+               </div>
+            </div>
+          </div>
+         {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->
+
+    {% endblock %}

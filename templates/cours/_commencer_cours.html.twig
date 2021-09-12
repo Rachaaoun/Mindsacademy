@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('cours_detail', {'id': cours.id}) }}" >
+    <input type="hidden" name="_token" value="{{ csrf_token('commencercours' ~ cours.id) }}">
+    <button class="btn">Commencer Cours</button>
+</form>

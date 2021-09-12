@@ -1,0 +1,12 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Nouveau Enseignant{% endblock %}
+
+{% block body %}
+<br>
+    {{ include('user/_form.html.twig') }}
+
+<br>
+
+    {# <a href="{{ path('matiere_index') }}">back to list</a> #}
+{% endblock %}

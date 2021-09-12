@@ -1,0 +1,46 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Liste des videos{% endblock %}
+
+{% block body %}
+    
+  <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Cours PDF</strong>
+                            </div>
+                            <div class="table-stats order-table ov-h">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>lien video</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td>{{ video.id }}</td>
+                <td>{{ video.titre }}</td>
+                <td><a href="{{ video.lienvideo }}">{{ video.lienvideo }}</a></td>
+                <td>
+                    <a href="{{ path('video_show', {'id': video.id}) }}">show</a>
+                    <a href="{{ path('video_edit', {'id': video.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('video_new') }}">Ajouter Video</a>
+{% endblock %}

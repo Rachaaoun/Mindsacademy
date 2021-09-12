@@ -1,0 +1,30 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Pdf{% endblock %}
+
+{% block body %}
+    <h1>Pdf</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pdf.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ pdf.titre }}</td>
+            </tr>
+            <tr>
+                <th>Pdffile</th>
+                <td>{{ pdf.pdffile }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('pdf_index') }}">back to list</a>
+
+    <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
+
+    {{ include('pdf/_delete_form.html.twig') }}
+{% endblock %}

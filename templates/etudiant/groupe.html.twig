@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Etudiant{% endblock %}
+
+{% block body %}
+    <h1>ajouter un Etudiant au groupe </h1>
+
+    {{ include('etudiant/_form.html.twig', {'button_label': 'Ajouter au groupe'}) }}
+
+
+{% endblock %}

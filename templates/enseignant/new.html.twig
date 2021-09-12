@@ -1,0 +1,11 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Confirmation Enseignant</h1>
+
+    {{ include('enseignant/_form.html.twig') }}
+
+    <a href="{{ path('enseignant_index') }}">Retour</a>
+{% endblock %}

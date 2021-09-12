@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Videos{% endblock %}
+
+{% block body %}
+    
+
+ <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+ {% for video in videos %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+               <img src="{{ asset('webImage/' ~ video.image) }}" height="300px" width="300px" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                 <a href="{{video.lienvideo}}"> <h4>{{ video.titre }}</h4></a>
+                  <p class="price"></p>
+                </div>
+
+                <p></p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                    <span></span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          
+              {% endfor %}
+           
+
+        </div>
+
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+ <style>
+#center{
+    margin-left:20%;
+}
+ </style>
+ 
+ <div class="row" id="center">
+   <div class="col-lg-6">
+   <div class="card">
+          <div class="card-header" style="background-color:green;color:green">
+               <strong class="card-title" style="background-color:green;color:white">Ajouter Un Cours</strong>
+           </div>
+           <div class="card-body">
+                                <!-- Credit Card -->
+            <div id="pay-invoice">
+             <div class="card-body">
+             <div class="card-title">
+              <h3 class="text-center">Cours</h3>
+             </div>
+             <hr>
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}<br><br>
+    <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form) }}

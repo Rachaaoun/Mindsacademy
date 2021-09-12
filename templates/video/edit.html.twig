@@ -1,0 +1,12 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Edit Video{% endblock %}
+
+{% block body %}
+    <h1>Edit Video</h1>
+
+    {{ include('video/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('video/_delete_form.html.twig') }}
+{% endblock %}

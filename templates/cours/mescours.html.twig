@@ -1,0 +1,29 @@
+
+ <!-- ======= Events Section ======= -->
+ 
+    <section id="events" class="events">
+      <div class="container" data-aos="fade-up">
+    <h1>Mes Cours </h1>
+    <hr>
+
+        <div class="row">
+        {% for cours in mescours %}
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-img">
+                <img src="{{ asset('webImage/' ~ cours.image) }}" width="400px" height="400px"  alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{path('pdf_video', {'id': cours.id})}}">{{cours.titre}}</a></h5>
+                <p class="font-italic text-center"></p>
+                <p class="card-text">{{cours.description}}</p>
+              </div>
+            </div>
+          </div>
+          
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->

@@ -1,0 +1,68 @@
+
+            {% extends 'baseadmin.html.twig' %}
+
+{% block title %}Enseignant index{% endblock %}
+
+{% block body %}
+
+
+
+  <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Les Etudiants</strong>
+                            </div>
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">#</th>
+                                            <th class="avatar">Image</th>
+                                              <th class="serial">nom</th>
+                                              <th class="serial">prenom</th>
+                                              <th class="serial">email</th>
+                                              <th>Groupe</th>
+                                              
+                                            
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                            {% for etudiant in etudiants %}
+                                        <tr>
+                                            <td class="serial">{{ etudiant.id }}</td>
+                                            <td class="avatar">
+                                                <div class="round-img">
+                                                    <a href="#"><img class="rounded-circle"  src="{{ asset('webImage/' ~ etudiant.image) }}"  alt=""></a>
+                                                </div>
+                                            </td>
+                                            <td>  <span class="name">{{ etudiant.nom }}</span> </td>
+                                             <td>  <span class="name">{{ etudiant.prenom }}</span> </td>
+                                              <td>  <span class="name">{{ etudiant.email }}</span> </td>
+  <td>                    
+   <a href="{{ path('etudgroupe_edit', {'id': etudiant.id}) }}">Ajouter a un groupe</a></td>
+                                            <td>
+                                             <span class="badge badge-complete">
+                    <a href="{{ path('user_show', {'id': etudiant.id}) }}">Voir</a></span>
+                     <span class="badge badge-complete">
+                    <a href="{{ path('user_edit', {'id': etudiant.id}) }}">Modifier</a>
+                                               </span>
+                                            </td>
+                                        </tr>
+                                       
+                                       
+                                       
+                                       {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div> <!-- /.table-stats -->
+                        </div>
+                    </div>
+
+
+    <a href="{{ path('etudiant_new') }}" class="btn btn-success">Ajouter Un Etudiant</a>
+{% endblock %}

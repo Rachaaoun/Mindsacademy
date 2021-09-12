@@ -1,0 +1,80 @@
+
+
+{% block body %}
+{# {% for cour in cours %}
+{{cour.id}}
+{% endfor %} #}
+
+{# <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Nos Cours</h2>
+          <p>Cours populaire</p>
+        </div>
+
+      
+  
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+      {% for cour in cours %}
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="{{ asset('webImage/' ~ cour.image) }}" class="img-fluid" >
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h4>{{cour.titre}}</h4>
+                </div>
+            
+              </div>
+            </div>  
+      {% endfor %}
+      </div> <!-- End Course Item-->
+    </div>
+  </div>
+</div> #}
+
+
+ <section id="popular-courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Cours</h2>
+          <p>Cours Populaire</p>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          
+{% for cour in cours %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="course-item">
+              <img src="{{ asset('webImage/' ~ cour.image) }}" class="img-fluid" >
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>Cours</h4>
+                  <p class="price">{{cour.frais}}</p>
+                </div>
+
+                <h3><a href="{{path('pdf_video', {'id': cour.id})}}">{{cour.titre}}</a></h3>
+                <p>{{cour.description}}</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    
+                    <span></span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div> <!-- End Course Item-->
+      {% endfor %}
+         
+
+        </div>
+
+      </div>
+    </section><!-- End Popular Courses Section -->
+
+{% endblock %}

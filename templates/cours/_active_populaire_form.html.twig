@@ -1,0 +1,11 @@
+
+<form method="post" action="{{ path('cours_populaire', {'id': cour.id}) }}" onsubmit="Vous confirmez l'ajout de ce cours a la liste des populaires?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('populaire' ~ cour.id) }}">
+  
+   
+    <button class="btn btn-success">Oui</button>
+
+  
+</form>
+
+ 

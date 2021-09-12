@@ -1,0 +1,52 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+  
+
+  <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Les Messages</strong>
+                            </div>
+                              <strong class="card-title"></strong>
+                            <div class="table-stats order-table ov-h">
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Sujet</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.sujet }}</td>
+                <td>{{ contact.message }}</td>
+                <td>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
+                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

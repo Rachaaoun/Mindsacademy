@@ -1,0 +1,11 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+{% for matiere in matieres %}
+          <br>
+
+                <h2><a href="{{path('cours_new',{'id' : matiere.id,'idniveau' : idniveau})}}">{{ matiere.titre}}</a></h3>
+               
+                <br>
+{% endfor %}
+{% endblock %}

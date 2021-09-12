@@ -1,0 +1,8 @@
+
+<form method="post" action="{{ path('cours_nonpopulaire', {'id': cour.id}) }}" onsubmit="return confirm('Vous êtes sure de supprimer le cours de la liste populaire?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('nonpopulaire' ~ cour.id) }}">
+   
+
+    <button class="btn btn-danger">Non</button>
+
+</form>

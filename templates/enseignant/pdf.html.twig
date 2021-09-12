@@ -1,0 +1,56 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Pdf{% endblock %}
+
+{% block body %}
+    
+<br><br><br>
+ <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+ {% for pdf in pdfs %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="/../assets/img/pdficon.png" width="50px" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>{{ pdf.titre }}</h4>
+                  <p class="price"></p>
+                </div>
+
+                <h9><a href="{{ asset('pdfUploads/' ~ pdf.pdffile) }}">Voir PDF</a></h9>
+                <p></p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+               
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          
+              {% endfor %}
+           
+
+        </div>
+
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

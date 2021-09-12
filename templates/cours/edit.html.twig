@@ -1,0 +1,12 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Modifier Cours{% endblock %}
+
+{% block body %}
+    <h1>Modifier Cours</h1>
+
+    {{ include('cours/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+    {{ include('cours/_delete_form.html.twig') }}
+{% endblock %}

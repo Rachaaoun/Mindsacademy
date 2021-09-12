@@ -1,0 +1,50 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Pdf index{% endblock %}
+
+{% block body %}
+    
+  <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Cours PDF</strong>
+                            </div>
+                            <div class="table-stats order-table ov-h">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Fichier PDF</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pdf in pdfs %}
+            <tr>
+                <td>{{ pdf.id }}</td>
+                <td>{{ pdf.titre }}</td>
+                <td><a href="{{ asset('pdfUploads/' ~ pdf.pdffile) }}">Voir PDF</a>
+</td>
+                <td>
+                    <a href="{{ path('pdf_show', {'id': pdf.id}) }}">show</a>
+                    <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                  </table>
+                            </div> <!-- /.table-stats -->
+                        </div>
+                    </div>
+
+
+    <a href="{{ path('pdf_new') }}" class="btn btn-success">Ajouter</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant{% endblock %}
+
+{% block body %}
+    <h1>Confirmation Ajout</h1>
+
+    {{ include('etudiant/_form.html.twig') }}
+
+    <a href="{{ path('etudiant_index') }}">retour</a>
+{% endblock %}

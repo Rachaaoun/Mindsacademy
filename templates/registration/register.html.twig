@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte {% endblock %}
+
+{% block body %}
+<style>
+#form{
+    margin-left:30%
+}
+#image{
+    width:300px;
+    opacity:50%;
+    margin-left:50%;
+}
+</style>
+
+<img src="/../assets/img/logo.png" id="image">
+      <div class="container">
+        <h2>Créer un compte Etudiant</h2>
+        <p></p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<div id="form">
+  
+  <div class="form-row">
+    <div class="col-lg-8 lg-7"><br><br>
+    {{ form_start(registrationForm) }}
+       {{ form_widget(registrationForm.nom) }}<br>
+
+          {{ form_widget(registrationForm.prenom) }}<br>
+ {{ form_widget(registrationForm.datedenaissance) }}<br>
+  {{ form_widget(registrationForm.lieudenaissance) }}<br>
+    {{ form_row(registrationForm.email) }}
+        {{ form_widget(registrationForm.email) }}<br>
+         {{ form_widget(registrationForm.numerotelephone) }}<br>
+        {{ form_widget(registrationForm.image) }}<br>
+         {{ form_widget(registrationForm.classe) }}<br>
+        {{ form_widget(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}<br>
+        {{ form_row(registrationForm.accepterlesconditions,{
+              label: 'Accepter les conditions : '
+        }) }}<br>
+ <div class="text-center">
+        <button type="submit" class="btn btn-success">Créer un compte</button></div>
+      
+    {{ form_end(registrationForm) }}
+    </div>
+  </div>
+  </div>
+{% endblock %}

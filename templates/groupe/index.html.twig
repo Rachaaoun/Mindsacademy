@@ -1,0 +1,43 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Groupe index{% endblock %}
+
+{% block body %}
+    <h1>List des groupes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nom</th>
+                <th>Cours</th>
+                   <th>Matiere</th>
+                   <th>Niveau</th>
+                   <th> </th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupe in groupes %}
+            <tr>
+                <td>{{ groupe.id }}</td>
+                <td>{{ groupe.nom }}</td>
+                  <td>{{ groupe.cours.titre }}</td>
+                    <td>{{ groupe.cours.matiere }}</td>
+                     <td>{{ groupe.cours.matiere.niveau.niveau}}</td>
+                     <td><a href="{{path('etudiants_par_groupe',{'id':groupe.id})}}">Voir etudiants</a></td>
+                <td>
+                    
+                    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('groupe_new') }}"> Ajouter Groupe</a>
+{% endblock %}

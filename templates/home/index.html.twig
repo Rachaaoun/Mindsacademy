@@ -1,0 +1,191 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+<html>
+<body>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Minds' Academy </h1>
+      <h2>Votre nouvelle Plateforme d'IT   </h2>
+      {% if  app.user == null %}
+      <a href="{{path('app_register')}}" class="btn-get-started">Créer Un Compte Gratuit</a>
+      {% endif %}
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>A propos</h2>
+          <p>A propos de nous </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Minds' Academy </h3>
+            <p class="font-italic">
+             Minds'Academy est une Plateforme spécialisée dans le domaine d'IT , qui met
+à la disposition des étudiants : des tutoriels , des Cours et des exos de Programmation ( C , C++ , JAVA , Python..) , 
+de Réseau et  de Mathématique  qui leur aident à améliorer leurs capacités.
+
+
+Dans le cadre de son opération , Outre l'accès gratuit à la plateforme,
+, On met à votre disposition des tuteurs particuliers pour vous aider à améliorer votre niveaux à travers la bonne gestion des 
+groupes en diffusant le contenu d'une Manière simple et instructive  .
+ 
+
+
+
+            </p>
+            <ul>
+              <li><i class="icofont-check-circled"></i> ** L'académie est accessible gratuitement.</li>
+              <li><i class="icofont-check-circled"></i> ** Des cours et des tutoriels  de qualités vous attendent.</li>
+              <li><i class="icofont-check-circled"></i> ** Les formations sont disponibles en ligne en présentiel.</li>
+            </ul>
+            
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    {# <section id="counts" class="counts section-bg">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1232</span>
+            <p>Students</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">64</span>
+            <p>Courses</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">42</span>
+            <p>Events</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">15</span>
+            <p>Trainers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section --> #}
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Pourquoi Choisir Minds Academy?</h3>
+              <p>Grace à la diversité 
+              </p>
+              <div class="text-center">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4> Projet Web  sit</h4>
+                    <p>Vos sites et projets Web  </p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cube-alt"></i>
+                    <h4> Mathématique </h4>
+                    <p>Les Mathématique ...</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    {# <i class="bx bx-images"></i> #}
+                 
+                    <img src="../assets/img/testimonials/testimonials-3.jpg" class="user-avatar rounded-circle" alt="" width="50px">
+                 <br><br>
+                    <h4>Programmation et Réseau </h4>
+                    <p>La programmation et réseau sont</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+     <!-- ======= Popular Courses Section ======= -->
+
+ {{ include('cours/populaire.html.twig') }}
+
+
+
+
+    <!-- ======= Popular Courses Section ======= -->
+   
+    <!-- ======= Trainers Section ======= -->
+    {# <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Trainers</h2>
+          <p>Our Professional Trainers</p>
+        </div>
+ 
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          {% for enseignant in enseignants %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="/assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>{{enseignant.nom}} {{enseignant.prenom}} </h4>
+                <span>{% for matiere in enseignant.matieres %}{{matiere}}- {% endfor %}</span>
+                <span>{{enseignant.email}}</span>
+                <p>
+                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                </p>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Trainers Section --> #}
+
+  </main><!-- End #main -->
+{# 
+ {{ include('home/footer.html.twig') }} #}
+ 
+{% endblock %}
