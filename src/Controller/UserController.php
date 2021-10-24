@@ -71,7 +71,7 @@ class UserController extends AbstractController
 
     
     /**
-     * @Route("/etudiant", name="etudiantt_index")
+     * @Route("/etudiant", name="etudiant_index")
      */
     public function listEtudiant(UserRepository $userRepository): Response
     {
