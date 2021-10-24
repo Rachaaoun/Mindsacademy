@@ -61,7 +61,7 @@ class UserController extends AbstractController
        // dd($users);
         return $this->render('user/enseignant_list.html.twig', [
            
-            'enseignants'=>$userRepository->findByRoles(['["ROLE_ADMIN"]']),
+            'enseignants'=>$userRepository->findByRoles("ROLE_ADMIN"),
            //'enseignants'=>$enseignants
         ]);
     }
