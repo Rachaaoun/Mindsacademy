@@ -3,7 +3,7 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Matiere</h1>
+    <h1>Utilisateur</h1>
 
     <table class="table">
         <tbody>
@@ -18,6 +18,18 @@
             <tr>
                 <th>Image</th>
                 <td><img src="{{ asset('webImage/' ~ user.image) }}" height="100px" width="100px"></td>
+            </tr>
+             <tr>
+                <th>Numero de telephone</th>
+                <td>{{ user.numerotelephone }}</td>
+            </tr>
+             <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+             <tr>
+                <th>Classe</th>
+                <td>{{ user.classe }}</td>
             </tr>
         </tbody>
     </table>

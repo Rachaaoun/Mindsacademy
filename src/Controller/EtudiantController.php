@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Etudiant;
+use App\Entity\User;
 use App\Form\ConfirmationFormType;
 use App\Form\EtudiantgroupeType;
 use App\Form\EtudiantType;
@@ -93,7 +94,7 @@ class EtudiantController extends AbstractController
     // }
 
     /**
-     * @Route("/{id}", name="etudiant_show", methods={"GET"})
+     * @Route("/{id}", name="etudiant_showww", methods={"GET"})
      */
     public function show(Etudiant $etudiant): Response
     {
@@ -105,11 +106,12 @@ class EtudiantController extends AbstractController
     /**
      * @Route("/{id}/edit", name="etudiant_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Etudiant $etudiant): Response
+    public function edit(Request $request, Etudiant $etudiant,UserRepository $userRepository): Response
     {
         $form = $this->createForm(EtudiantType::class, $etudiant);
         $form->handleRequest($request);
 
+        $email = $etudiant->getEmail();
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -125,10 +127,13 @@ class EtudiantController extends AbstractController
     /**
      * @Route("/{id}", name="etudiant_delete", methods={"POST"})
      */
-    public function delete(Request $request, Etudiant $etudiant): Response
+    public function delete(Request $request, Etudiant $etudiant,UserRepository $userRepository): Response
     {
+       $email= $etudiant->getEmail();
+        $user=$userRepository->findOneByEmail($email);
         if ($this->isCsrfTokenValid('delete'.$etudiant->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
             $entityManager->remove($etudiant);
             $entityManager->flush();
         }
