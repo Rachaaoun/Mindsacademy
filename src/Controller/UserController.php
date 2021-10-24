@@ -75,10 +75,11 @@ class UserController extends AbstractController
      */
     public function listEtudiant(UserRepository $userRepository): Response
     {
-       // dd($users);
+        $users=$userRepository->findByRoles(['["ROLE_USER"]']);
+        dd($users);
         return $this->render('user/etudiant_list.html.twig', [
             'controller_name' => 'UserController',
-            'enseignants'=>$userRepository->findByRoles(array("ROLE_USER"))
+            'enseignants'=>$userRepository->findByRoles(['["ROLE_USER"]'])
          //   'enseignants'=>$userRepository->findAll()
         ]);
     }
