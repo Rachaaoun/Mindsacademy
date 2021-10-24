@@ -39,7 +39,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             
             // to create an  admin delete the // in the next line then register the admin in the website save and write back the // in the same line
-            //$user->setRoles(array("ROLE_SUPER_ADMIN"));
+//            $user->setRoles(array("ROLE_SUPER_ADMIN"));
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
