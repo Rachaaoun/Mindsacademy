@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Enseignant;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Repository\EnseignantRepository;
 use App\Repository\EtudiantRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,10 +54,15 @@ class UserController extends AbstractController
     public function listEnseignant(UserRepository $userRepository): Response
     {
       $users=  $userRepository->findAll();
+     
+      $enseignants = $this->getDoctrine()
+      ->getRepository(Enseignant::class)
+      ->findAll();
        // dd($users);
         return $this->render('user/enseignant_list.html.twig', [
-            'controller_name' => 'UserController',
-            'enseignants'=>$userRepository->findByRoles(['["ROLE_ADMIN"]'])
+           
+            //'enseignants'=>$users->findByRoles(['["ROLE_ADMIN"]']),
+           'enseignants'=>$enseignants
         ]);
     }
 
