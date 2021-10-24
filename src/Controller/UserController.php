@@ -75,7 +75,6 @@ class UserController extends AbstractController
      */
     public function listEtudiant(UserRepository $userRepository): Response
     {
-      $users=  $userRepository->findAll();
        // dd($users);
         return $this->render('user/etudiant_list.html.twig', [
             'controller_name' => 'UserController',
