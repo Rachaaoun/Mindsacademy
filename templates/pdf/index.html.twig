@@ -19,6 +19,9 @@
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Fichier PDF</th>
+                <th>Cours</th>
+                <th>Matiere</th>
+                <th>Niveau</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -27,8 +30,10 @@
             <tr>
                 <td>{{ pdf.id }}</td>
                 <td>{{ pdf.titre }}</td>
-                <td><a href="{{ asset('pdfUploads/' ~ pdf.pdffile) }}">Voir PDF</a>
-</td>
+                <td><a href="{{ asset('pdfUploads/' ~ pdf.pdffile) }}">Voir PDF</a></td>
+                 <td>{{ pdf.cours.titre }}</td>
+                 <td>{{ pdf.cours.matiere.titre }}</td>
+                  <td>{{ pdf.cours.matiere.niveau.niveau }}</td>
                 <td>
                     <a href="{{ path('pdf_show', {'id': pdf.id}) }}">show</a>
                     <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
