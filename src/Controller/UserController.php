@@ -93,7 +93,7 @@ class UserController extends AbstractController
         }
         $listEtudiant=$etudiants;
        $etudiant=$listEtudiant[0];
-dd(count($users));
+//dd(count($users));
        //array_diff_key($listEtudiant,[$listEtudiant[0]]);
        //dd( $userRepository->findByRoles("ROLE_USER"));
         //dd($userRepository->getEtudiants("Role_USER"));
@@ -102,7 +102,7 @@ dd(count($users));
         return $this->render('user/etudiant_list.html.twig', [
             'controller_name' => 'UserController',
             'enseignants'=>$userRepository->findByRoles("Role_USER"),
-            'nbEtudiant'=>count($users)
+            'nbEtudiant'=>count($userRepository->findByRoles("Role_USER"))
 
         ]);
     }
