@@ -53,7 +53,7 @@ class UserController extends AbstractController
      */
     public function listEnseignant(UserRepository $userRepository): Response
     {
-      $users=  $userRepository->findAll();
+      $users=  $userRepository->findByRoles("ROLE_ADMIN");
      
       $enseignants = $this->getDoctrine()
       ->getRepository(Enseignant::class)
@@ -62,6 +62,7 @@ class UserController extends AbstractController
         return $this->render('user/enseignant_list.html.twig', [
            
             'enseignants'=>$userRepository->findByRoles("ROLE_ADMIN"),
+            'nbEnseignant'=>count($users)
            //'enseignants'=>$enseignants
         ]);
     }
@@ -100,7 +101,8 @@ class UserController extends AbstractController
        // dd($users);
         return $this->render('user/etudiant_list.html.twig', [
             'controller_name' => 'UserController',
-            'enseignants'=>$userRepository->findByRoles("Role_USER")
+            'enseignants'=>$userRepository->findByRoles("Role_USER"),
+            'nbEtudiant'=>count($users)
 
         ]);
     }
