@@ -93,7 +93,7 @@ class UserController extends AbstractController
         }
         $listEtudiant=$etudiants;
        $etudiant=$listEtudiant[0];
-
+dd(count($users));
        //array_diff_key($listEtudiant,[$listEtudiant[0]]);
        //dd( $userRepository->findByRoles("ROLE_USER"));
         //dd($userRepository->getEtudiants("Role_USER"));
