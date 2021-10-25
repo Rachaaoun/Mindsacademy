@@ -237,9 +237,20 @@ class CoursController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $file=$cour->getImage();
+            $fileName=md5(uniqid()).'.'.$file->guessExtension();
+            $cour->setImage($fileName);   
+            try{
+                $file->move($this->getParameter('images_directory'),$fileName);
+                
+            }catch(FileException $e){   }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($cour);
+            $entityManager->flush();
 
             return $this->redirectToRoute('homeadmin', [], Response::HTTP_SEE_OTHER);
         }
+     
 
         return $this->render('cours/edit.html.twig', [
             'cour' => $cour,
