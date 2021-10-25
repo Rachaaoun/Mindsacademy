@@ -21,6 +21,8 @@
                 <th>Titre</th>
                 <th>lien video</th>
                 <th>Cours</th>
+                <th>Matiere</th>
+                <th>Niveau</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,6 +33,8 @@
                 <td>{{ video.titre }}</td>
                 <td><a href="{{ video.lienvideo }}">{{ video.lienvideo }}</a></td>
                 <td>{{ video.cours.titre }}</td>
+                 <td>{{ video.cours.matiere.titre }}</td>
+                  <td>{{ video.cours.matiere.niveau.niveau }}</td>
                 <td>
                     <a href="{{ path('video_show', {'id': video.id}) }}">show</a>
                     <a href="{{ path('video_edit', {'id': video.id}) }}">edit</a>
